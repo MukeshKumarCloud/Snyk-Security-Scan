@@ -1,3 +1,67 @@
+# Snyk SCA Security Scan — Vulnerability Report
+
+## Overview
+Performed Software Composition Analysis (SCA) using **Snyk** to identify open-source vulnerabilities in a Node.js application (`snyk/goof` — an intentionally vulnerable demo app).
+
+## Tool Used
+- **Snyk CLI** v[1.1304.0]
+- **Scan Type:** SCA (open-source dependency scanning)
+- **Date:** [2026-04-25]
+- **Target:** Node.js project (`package.json` + `node_modules`)
+
+## Findings Summary
+
+| Severity | Count |
+|----------|-------|
+| Critical | [36]   |
+| High     | [66]   |
+| Medium   | [35]   |
+| Low      | [8]   |
+
+**Total vulnerabilities found:** [145]
+**Total vulnerable paths:** [559]
+
+## Key Vulnerabilities Identified
+
+Testing /home/mukeshk/goof...
+
+Tested 566 dependencies for known issues, found 149 issues, 559 vulnerable paths.
+
+
+Issues to fix by upgrading:
+
+  Upgrade adm-zip@0.4.7 to adm-zip@0.5.2 to fix
+  ✗ Directory Traversal [High Severity][https://security.snyk.io/vuln/SNYK-JS-ADMZIP-1065796] in adm-zip@0.4.7
+    introduced by adm-zip@0.4.7
+  ✗ Arbitrary File Write via Archive Extraction (Zip Slip) [Critical Severity][https://security.snyk.io/vuln/npm:adm-zip:20180415] in adm-zip@0.4.7
+    introduced by adm-zip@0.4.7
+
+  Upgrade body-parser@1.9.0 to body-parser@1.20.4 to fix
+  ✗ Allocation of Resources Without Limits or Throttling [High Severity][https://security.snyk.io/vuln/SNYK-JS-QS-14724253] in qs@2.2.4
+    introduced by body-parser@1.9.0 > qs@2.2.4 and 2 other path(s)
+  ✗ Asymmetric Resource Consumption (Amplification) [High Severity][https://security.snyk.io/vuln/SNYK-JS-BODYPARSER-7926860] in body-parser@1.9.0
+    introduced by body-parser@1.9.0
+  ✗ Prototype Poisoning [High Severity][https://security.snyk.io/vuln/SNYK-JS-QS-3153490] in qs@2.2.4
+    introduced by body-parser@1.9.0 > qs@2.2.4 and 2 other path(s)
+  ✗ Prototype Override Protection Bypass [High Severity][https://security.snyk.io/vuln/npm:qs:20170213] in qs@2.2.4
+    introduced by body-parser@1.9.0 > qs@2.2.4 and 1 other path(s)
+
+## Scan Command Used
+```bash
+snyk test
+```
+
+## Full Results
+See [`snyk-results.txt`](./snyk-results.txt) for complete CLI output.
+
+## Resume Bullet Point
+> Performed SCA using Snyk CLI to identify open-source vulnerabilities in a Node.js application; uncovered [145] vulnerabilities including [36] critical/high severity CVEs and documented remediation steps.
+
+## What I Learned
+- How dependency trees expose transitive vulnerabilities
+- How CVE scoring (CVSS) works
+- How to interpret fix availability and upgrade paths
+
 # Goof - Snyk's vulnerable demo app
 [![Known Vulnerabilities](https://snyk.io/test/github/snyk/goof/badge.svg?style=flat-square)](https://snyk.io/test/github/snyk/goof)
 
